@@ -13,7 +13,7 @@ spec:
     metadata:
       name: mypod
       labels:
-        app: nginx-pod
+        app: nginxpod
     spec:
       containers:
         - name: nginx
