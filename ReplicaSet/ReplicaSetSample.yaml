@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrcset
+  labels:
+    app: myrcset-app
+
+spec:
+  template:
+    metadata:
+      name: mypod
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - name: mynginx
+        image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front-end
