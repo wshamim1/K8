@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myimg
+
+spec:
+  containers:
+    - name: mypod
+      image: wilsonshamim/echo-image
+      env:
+        - name: NAME
+          value: VAL
+      args: ["$(NAME)"]
+~                           
