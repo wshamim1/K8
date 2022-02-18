@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myimg
+
+spec:
+  containers:
+    - name: mypod
+      image: wilsonshamim/echo-image
+      command: ["echo","aaa"]
+      args: ["shamim"]
