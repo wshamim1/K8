@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myimg
+
+spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    fsGroup: 2000
+  containers:
+    - name: mypod
+      image: wilsonshamim/echo-image
+      env:
+        - name: NAME
+          value: VAL
+      args: ["$(NAME)"]
+      securityContext:
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
+      resources:
+        requests:
+          memory: "1Mi"
+          cpu: 1
+        limits:
+          memory: "1024Mi"
+          cpu: 5
