@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisdeployments
+  labels:
+    app: redisapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisapp
+  template:
+    metadata:
+      name: redispod
+      labels:
+        app: redisapp
+
+    spec:
+      containers:
+        - image: redis
+          name: redis
+          env:
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redisservice
+
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: redisapp
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+      nodePort: 30014
