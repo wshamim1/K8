@@ -1,0 +1,2 @@
+﻿Type,command
+namespace,kubectl create ns ns1
