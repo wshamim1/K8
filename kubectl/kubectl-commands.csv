@@ -1,2 +1,8 @@
-﻿Type,command
-namespace,kubectl create ns ns1
+﻿Category,Type,command
+Namespaces,create,kubectl create ns ns1
+,get,
+,delete,
+,,
+Pods,Create,
+,get,
+,delete,
