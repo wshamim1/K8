@@ -1,8 +1,31 @@
-﻿Category,Type,command
-Namespaces,create,kubectl create ns ns1
-,get,
-,delete,
-,,
-Pods,Create,
-,get,
-,delete,
+Resource,Command,Description
+Namespace,kubectl get namespaces,Lists all namespaces
+Namespace,kubectl create namespace <namespace-name>,Creates a new namespace
+Namespace,kubectl delete namespace <namespace-name>,Deletes a specific namespace
+Namespace,kubectl config set-context --current --namespace=<namespace-name>,Sets the current namespace for the context
+
+Pods,kubectl get pods,Lists all pods in the default namespace
+Pods,kubectl get pods -n <namespace>,Lists all pods in a specific namespace
+Pods,kubectl describe pod <pod-name>,Displays detailed information about a specific pod
+Pods,kubectl delete pod <pod-name>,Deletes a specific pod
+Pods,kubectl exec -it <pod-name> -- <command>,Executes a command inside a running pod (interactive terminal)
+Pods,kubectl logs <pod-name>,Fetches the logs from a specific pod
+
+Deployments,kubectl get deployments,Lists all deployments in the current namespace
+Deployments,kubectl create deployment <deployment-name> --image=<image>,Creates a new deployment with the specified container image
+Deployments,kubectl describe deployment <deployment-name>,Displays detailed information about a specific deployment
+Deployments,kubectl delete deployment <deployment-name>,Deletes a specific deployment
+Deployments,kubectl scale deployment <deployment-name> --replicas=<number>,Scales a deployment to the specified number of replicas
+Deployments,kubectl rollout status deployment <deployment-name>,Shows the status of a deployment rollout
+Deployments,kubectl rollout undo deployment <deployment-name>,Rolls back a deployment to a previous revision
+
+Services,kubectl get services,Lists all services in the current namespace
+Services,kubectl get svc -n <namespace>,Lists all services in a specific namespace
+Services,kubectl describe service <service-name>,Displays detailed information about a specific service
+Services,kubectl delete service <service-name>,Deletes a specific service
+Services,kubectl expose pod <pod-name> --port=<port> --target-port=<target-port>,Exposes a pod as a service on a specific port
+
+Jobs,kubectl get jobs,Lists all jobs in the current namespace
+Jobs,kubectl describe job <job-name>,Displays detailed information about a specific job
+Jobs,kubectl create job <job-name> --image=<image>,Creates a job with the specified container image
+Jobs,kubectl delete job <job-name>,Deletes a specific job
