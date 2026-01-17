@@ -14,19 +14,18 @@ spec:
       name: redispod
       labels:
         app: redisapp
-
     spec:
       containers:
-        - image: redis
-          name: redis
-          env:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              name: redis
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: redisservice
-
-
 spec:
   type: LoadBalancer
   selector:
@@ -36,3 +35,5 @@ spec:
       port: 6379
       targetPort: 6379
       nodePort: 30014
+
+# Made with Bob

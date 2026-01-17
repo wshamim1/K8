@@ -4,8 +4,10 @@ metadata:
   name: myrc
   labels:
     app: myrc-app
-
 spec:
+  replicas: 3
+  selector:
+    app: front-end
   template:
     metadata:
       name: mypod
@@ -13,6 +15,9 @@ spec:
         app: front-end
     spec:
       containers:
-      - name: mynginx
-        image: nginx
-  replicas: 3
+        - name: mynginx
+          image: nginx
+          ports:
+            - containerPort: 80
+
+# Made with Bob

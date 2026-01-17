@@ -14,26 +14,22 @@ spec:
       name: mysqlpod
       labels:
         app: mysql
-
     spec:
       containers:
-        - image: mysql:5.6
-          name: mysql
+        - name: mysql
+          image: mysql:5.6
           env:
-          # Use secret in real usage
-          - name: MYSQL_ROOT_PASSWORD
-            value: password
+            # Use secret in real usage
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
           ports:
-          - containerPort: 3306
-            name: mysql
-
+            - containerPort: 3306
+              name: mysql
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: mysqlservice
-
-
 spec:
   type: NodePort
   selector:
@@ -43,3 +39,5 @@ spec:
       port: 3306
       targetPort: 3306
       nodePort: 30002
+
+# Made with Bob

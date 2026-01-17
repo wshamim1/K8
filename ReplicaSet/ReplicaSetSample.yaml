@@ -4,8 +4,11 @@ metadata:
   name: myrcset
   labels:
     app: myrcset-app
-
 spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front-end
   template:
     metadata:
       name: mypod
@@ -13,9 +16,9 @@ spec:
         app: front-end
     spec:
       containers:
-      - name: mynginx
-        image: nginx
-  replicas: 3
-  selector:
-    matchLabels:
-      app: front-end
+        - name: mynginx
+          image: nginx
+          ports:
+            - containerPort: 80
+
+# Made with Bob

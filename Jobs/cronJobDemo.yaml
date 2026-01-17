@@ -1,5 +1,3 @@
-
-
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -15,5 +13,7 @@ spec:
           containers:
             - name: mathsapp
               image: ubuntu
-              command: ["expr",'3','+','5']
+              command: ["expr", "3", "+", "5"]
           restartPolicy: Never
+
+# Made with Bob

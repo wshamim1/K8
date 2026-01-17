@@ -7,14 +7,14 @@ metadata:
     type: front-end
 spec:
   containers:
-    - name: ngnix
+    - name: nginx
       image: nginx
       volumeMounts:
-      - mountPath: /tmp
-        name: data-volume
-
-
+        - mountPath: /tmp
+          name: data-volume
   volumes:
     - name: data-volume
       persistentVolumeClaim:
-        claimName: pvcclaim
+        claimName: pvclaim
+
+# Made with Bob
